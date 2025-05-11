@@ -201,7 +201,7 @@
     setInterval(() => {
       current = (current + 1) % images.length;
       imgElement.src = images[current];
-    }, 4500);
+    }, 3000);
 
     const timerElement = document.getElementById("timer");
     const startDate = new Date("2008-09-24T17:45:00");
@@ -252,20 +252,7 @@
     createStars();
 
     const ratingBar = document.getElementById("ratingBar");
-
-    function checkRatingBarVisibility() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight) {
-        ratingBar.style.display = "flex";
-      } else {
-        ratingBar.style.display = "none";
-      }
-    }
-
-    window.addEventListener("load", checkRatingBarVisibility);
-    window.addEventListener("scroll", checkRatingBarVisibility);
+    ratingBar.style.display = "flex";  // Barra sempre visível
 
     const slider = document.getElementById("slider");
     const sliderContainer = document.querySelector(".slider-container");
