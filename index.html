@@ -286,33 +286,22 @@
 
     let dragging = false;
 
-    sliderContainer.addEventListener("mousedown", (e) => {
-      dragging = true;
-      updateSlider(e);
-    });
+// Controle de slider com mouse
+sliderContainer.addEventListener("mousedown", (e) => {
+  dragging = true;
+  updateSlider(e);
+});
 
-    window.addEventListener("mousemove", (e) => {
-      if (dragging) {
-        updateSlider(e);
-      }
-    });
+window.addEventListener("mousemove", (e) => {
+  if (dragging) {
+    updateSlider(e);
+  }
+});
 
-    window.addEventListener("mouseup", () => {
-      dragging = false;
-    });
+window.addEventListener("mouseup", () => {
+  dragging = false;
+});
 
-    function updateSlider(e) {
-      const rect = sliderContainer.getBoundingClientRect();
-      let width = e.clientX - rect.left;
-
-      if (width < 0) width = 0;
-      if (width > rect.width) width = rect.width;
-
-      slider.style.width = `${width}px`;
-
-      const percentage = Math.round((width / rect.width) * 100);
-      sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
-    }
     // Eventos de toque para celular
 sliderContainer.addEventListener("touchstart", (e) => {
   dragging = true;
