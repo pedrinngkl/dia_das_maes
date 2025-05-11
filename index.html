@@ -40,11 +40,6 @@
       margin-bottom: 20px;
     }
 
-    .message {
-      text-align: justify;
-      margin-top: 30px;
-    }
-
     .heart {
       position: fixed;
       top: -30px;
@@ -116,6 +111,7 @@
       background: #444;
       border-radius: 50px; 
       overflow: hidden;
+      cursor: pointer;
     }
 
     .slider {
@@ -123,7 +119,7 @@
       height: 100%;
       background: #ff4da6;
       border-radius: 50px;
-      transition: width 0.5s ease;
+      transition: width 0.2s ease;
     }
 
     .slider-text {
@@ -133,12 +129,13 @@
       margin-top: 10px;
       text-align: center;
     }
+
   </style>
 </head>
 <body>
   Do seu filho para sua mãe querida
   <div class="container">
-    <img id="slideshow" src="img1.jpeg" alt="Slideshow" class="slide-img" />
+    <img id="slideshow" src="img/img1.jpg" alt="Slideshow" class="slide-img" />
     <h1>💕 Apenas um pedaço do meu amor por você 💖</h1>
     <p id="timer" class="timer"></p>
     <hr />
@@ -190,11 +187,7 @@
   </div>
 
   <script>
-    const images = [
-      "./img/img1.jpg", "./img/img2.jpg", "./img/img3.jpg",
-      "./img/img4.jpg", "./img/img5.jpg", "./img/img6.jpg",
-      "./img/img7.jpg", "./img/img8.jpg", "./img/img9.jpg", "./img/img10.jpg"
-    ];
+    const images = ["./img/img1.jpg", "./img/img2.jpg","./img/img3.jpg","./img/img4.jpg","./img/img5.jpg", "./img/img6.jpg" , "./img/img7.jpg" , "./img/img8.jpg" , "./img/img9.jpg" , "./img/img10.jpg"];
     let current = 0;
     const imgElement = document.getElementById("slideshow");
 
@@ -230,7 +223,6 @@
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), 5000);
     }
 
@@ -238,7 +230,6 @@
 
     function createStars() {
       const starsContainer = document.getElementById("stars");
-
       for (let i = 0; i < 100; i++) {
         const star = document.createElement("div");
         star.classList.add("star");
@@ -253,7 +244,7 @@
 
     const ratingBar = document.getElementById("ratingBar");
 
-    function checkRatingBarVisibility() {
+    window.addEventListener("scroll", () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
@@ -262,10 +253,7 @@
       } else {
         ratingBar.style.display = "none";
       }
-    }
-
-    window.addEventListener("load", checkRatingBarVisibility);
-    window.addEventListener("scroll", checkRatingBarVisibility);
+    });
 
     const slider = document.getElementById("slider");
     const sliderContainer = document.querySelector(".slider-container");
@@ -273,8 +261,36 @@
 
     let dragging = false;
 
+    function updateSlider(e) {
+      const rect = sliderContainer.getBoundingClientRect();
+      let width = e.clientX - rect.left;
+
+      if (width < 0) width = 0;
+      if (width > rect.width) width = rect.width;
+
+      slider.style.width = `${width}px`;
+      const percentage = Math.round((width / rect.width) * 100);
+      sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
+    }
+
+    function updateSliderTouch(touch) {
+      const rect = sliderContainer.getBoundingClientRect();
+      let width = touch.clientX - rect.left;
+
+      if (width < 0) width = 0;
+      if (width > rect.width) width = rect.width;
+
+      slider.style.width = `${width}px`;
+      const percentage = Math.round((width / rect.width) * 100);
+      sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
+    }
+
     sliderContainer.addEventListener("mousedown", (e) => {
       dragging = true;
+      updateSlider(e);
+    });
+
+    sliderContainer.addEventListener("click", (e) => {
       updateSlider(e);
     });
 
@@ -291,35 +307,16 @@
       updateSliderTouch(e.touches[0]);
     });
 
-    window.addEventListener("touchmove", (e) => {
+    sliderContainer.addEventListener("touchmove", (e) => {
       if (dragging) updateSliderTouch(e.touches[0]);
     });
 
-    window.addEventListener("touchend", () => {
+    sliderContainer.addEventListener("touchend", (e) => {
       dragging = false;
+      if (e.changedTouches.length > 0) {
+        updateSliderTouch(e.changedTouches[0]);
+      }
     });
-
-    function updateSliderTouch(touch) {
-      const rect = sliderContainer.getBoundingClientRect();
-      let width = touch.clientX - rect.left;
-      if (width < 0) width = 0;
-      if (width > rect.width) width = rect.width;
-
-      slider.style.width = `${width}px`;
-      const percentage = Math.round((width / rect.width) * 100);
-      sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
-    }
-
-    function updateSlider(e) {
-      const rect = sliderContainer.getBoundingClientRect();
-      let width = e.clientX - rect.left;
-      if (width < 0) width = 0;
-      if (width > rect.width) width = rect.width;
-
-      slider.style.width = `${width}px`;
-      const percentage = Math.round((width / rect.width) * 100);
-      sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
-    }
   </script>
 </body>
 </html>
