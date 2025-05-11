@@ -313,6 +313,35 @@
       const percentage = Math.round((width / rect.width) * 100);
       sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
     }
+    // Eventos de toque para celular
+sliderContainer.addEventListener("touchstart", (e) => {
+  dragging = true;
+  updateSliderTouch(e.touches[0]);
+});
+
+window.addEventListener("touchmove", (e) => {
+  if (dragging) {
+    updateSliderTouch(e.touches[0]);
+  }
+});
+
+window.addEventListener("touchend", () => {
+  dragging = false;
+});
+
+function updateSliderTouch(touch) {
+  const rect = sliderContainer.getBoundingClientRect();
+  let width = touch.clientX - rect.left;
+
+  if (width < 0) width = 0;
+  if (width > rect.width) width = rect.width;
+
+  slider.style.width = `${width}px`;
+
+  const percentage = Math.round((width / rect.width) * 100);
+  sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
+}
+
   </script>
 </body>
 </html>
