@@ -107,6 +107,8 @@
       background-color: #111; 
       z-index: 10;
       gap: 1px;
+      opacity: 0; /* Inicialmente invisível */
+      transition: opacity 0.5s ease;
     }
 
     .slider-container {
@@ -201,7 +203,7 @@
     setInterval(() => {
       current = (current + 1) % images.length;
       imgElement.src = images[current];
-    }, 3000);
+    }, 4500);
 
     const timerElement = document.getElementById("timer");
     const startDate = new Date("2008-09-24T17:45:00");
@@ -252,7 +254,15 @@
     createStars();
 
     const ratingBar = document.getElementById("ratingBar");
-    ratingBar.style.display = "flex";  // Barra sempre visível
+
+    window.addEventListener("scroll", () => {
+      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      if (bottom) {
+        ratingBar.style.opacity = 1; // Torna a rating bar visível
+      } else {
+        ratingBar.style.opacity = 0; // Fica invisível
+      }
+    });
 
     const slider = document.getElementById("slider");
     const sliderContainer = document.querySelector(".slider-container");
