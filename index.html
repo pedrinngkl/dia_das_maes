@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Uma homenagem especial para o Dia das Mães."/>
+<link rel="icon" href="img/favicon.png" type="png">
+
+  <title>Para Minha querida Mãe</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding-bottom: 100px;
+    }
+
+    .slide-img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .timer {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      text-align: justify;
+      margin-top: 30px;
+    }
+
+   
+    .heart {
+      position: fixed;
+      top: -30px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      color: #ff4da6;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      animation: twinkle 1.5s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    
+    .rating-bar {
+  width: 60%;
+  margin: 0 auto;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 15px 10px;
+  background-color: #111; 
+  z-index: 10;
+  gap: 1px;
+}
+
+    .slider-container {
+      width: 200px; 
+      height: 10px;
+      position: relative;
+      background: #444;
+      border-radius: 50px; 
+      overflow: hidden;
+    }
+
+    .slider {
+      width: 0;
+      height: 100%;
+      background: #ff4da6;
+      border-radius: 50px;
+      transition: width 0.5s ease;
+    }
+
+    .slider-text {
+      color: white;
+      font-size: 1em;
+      font-family: 'Arial', sans-serif;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body> Do seu filho para sua mãe querida
+  <div class="container">
+    <img id="slideshow" src="img1.jpeg" alt="Slideshow" class="slide-img" />
+
+    <h1>💕 Apenas um pedaço do meu amor por você 💖</h1>
+    <p id="timer" class="timer"></p>
+    <hr />
+    <div>
+        <p><strong style="font-size: 1.2rem;">Mãe,</strong></p>
+      
+        <p style="margin-top: 10px;">
+          Hoje não é apenas uma data no calendário. É um sussurro do tempo que diz: "celebre quem te deu a vida".<br>
+          É o seu dia. 💖 E diante de tudo que você representa, eu não poderia deixar passar em branco.<br>
+          Resolvi escrever, mesmo sabendo que nenhum texto será capaz de traduzir por completo o que você significa pra mim. 🌸
+        </p>
+      
+        <p>
+          Você é poema em dias de prosa, é paz em dias de guerra, é abraço em forma de gente. 🤱🏻✨<br>
+          É quem me ensinou a andar, a sonhar, a acreditar em mim mesmo quando o mundo parecia desacreditar. 🌍💫
+        </p>
+      
+        <p>
+          Não sei como consegue ser tantas em uma só: mulher forte, guerreira incansável, amiga leal, conselheira sábia,<br>
+          colo que acolhe, olhar que entende, amor que não se mede. 💗<br>
+          Você é o coração batendo fora do meu peito, e isso não é exagero, é verdade sentida.
+        </p>
+      
+        <p>
+          Em cada gesto seu mora um cuidado silencioso, uma entrega diária que nem sempre é vista, mas sempre é sentida. 🕊️<br>
+          E hoje eu quero que saiba: tudo isso não passa despercebido. Carrego comigo cada ensinamento, cada renúncia, cada sorriso dado mesmo nos dias difíceis. ❤️
+        </p>
+      
+        <p>
+          Obrigado por ser minha luz nos momentos sombrios, meu alicerce quando tudo balança,<br>
+          meu porto seguro quando a vida me deixa à deriva. ⛵🌟<br>
+          Seu amor me construiu. E é nele que me apoio todos os dias.
+        </p>
+      
+        <p>
+          Feliz Dia das Mães! Que o universo retribua em dobro tudo que você já fez por mim.<br>
+          Que a sua vida seja longa, leve, cheia de alegrias e rodeada de amor, o mesmo amor que você sempre me deu, sem esperar nada em troca. 💐
+        </p>
+      
+        <br>
+      
+        <p><strong>Com todo o meu amor e admiração,</strong></p>
+        <p>
+          Do seu eterno menino, que cresce por fora, mas nunca deixa de ser seu filho por dentro. 👦🏻💕<br>
+          Te amo mais do que palavras podem escrever, e mais do que o tempo consegue medir. ❤️
+        </p>
+      </div>
+      
+
+  <div class="stars" id="stars"></div>
+
+  <div class="rating-bar" id="ratingBar">
+    <div class="slider-container">
+      <div id="slider" class="slider"></div>
+    </div>
+    <div id="sliderText" class="slider-text">Arraste para avaliar!</div>
+  </div>
+
+  <script>
+  
+    const images = ["./img/img1.jpg", "./img/img2.jpg","./img/img3.jpg","./img/img4.jpg","./img/img5.jpg", "./img/img6.jpg" , "./img/img7.jpg" , "./img/img8.jpg" , "./img/img9.jpg" , "./img/img10.jpg"];
+    let current = 0;
+    const imgElement = document.getElementById("slideshow");
+
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      imgElement.src = images[current];
+    }, 5000);
+
+  
+    const timerElement = document.getElementById("timer");
+    const startDate = new Date("2008-09-24T17:45:00");
+
+    function updateTimer() {
+      const now = new Date();
+      let diff = now - startDate;
+
+      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+      const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+      const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+      const hours = now.getHours().toString().padStart(2, "0");
+      const minutes = now.getMinutes().toString().padStart(2, "0");
+      const seconds = now.getSeconds().toString().padStart(2, "0");
+
+      timerElement.textContent = `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+ 
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+ 
+    function createStars() {
+      const starsContainer = document.getElementById("stars");
+
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    createStars();
+
+    
+    const ratingBar = document.getElementById("ratingBar");
+
+    window.addEventListener("scroll", () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+     
+      if (scrollPosition >= documentHeight) {
+        ratingBar.style.display = "flex";
+      } else {
+        ratingBar.style.display = "none";
+      }
+    });
+
+   
+    const slider = document.getElementById("slider");
+    const sliderContainer = document.querySelector(".slider-container");
+    const sliderText = document.getElementById("sliderText");
+
+    let dragging = false;
+
+    sliderContainer.addEventListener("mousedown", (e) => {
+      dragging = true;
+      updateSlider(e);
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (dragging) {
+        updateSlider(e);
+      }
+    });
+
+    window.addEventListener("mouseup", () => {
+      dragging = false;
+    });
+
+    function updateSlider(e) {
+      const rect = sliderContainer.getBoundingClientRect();
+      let width = e.clientX - rect.left;
+
+      if (width < 0) width = 0;
+      if (width > rect.width) width = rect.width;
+
+      slider.style.width = `${width}px`;
+
+      const percentage = Math.round((width / rect.width) * 100);
+      sliderText.textContent = `Avaliação: ${percentage}% de amor!`;
+    }
+  </script>
+</body>
+</html>
